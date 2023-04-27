@@ -46,6 +46,11 @@ function Hero({}: Props) {
           <Link href={'#about'}>
             <button className='heroButton'>About</button>
           </Link>
+          <Link href={'#education'}>
+            <button className='heroButton'>Education</button>
+          </Link>
+        </div>
+        <div className={'pt-1'}>
           <Link href={'#experience'}>
             <button className='heroButton'>Experience</button>
           </Link>
