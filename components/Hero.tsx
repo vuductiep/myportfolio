@@ -3,14 +3,9 @@ import { Cursor, useTypewriter } from 'react-simple-typewriter'
 import BackgroundCircles from './BackgroundCircles'
 import Image from 'next/image'
 import Link from "next/link";
+import { ImageProp } from './ImageProperty';
 
 type Props = {}
-
-type ImageProp = {
-    src: string,
-    width?: number,
-    height?: number
-}
 
 function Hero({}: Props) {
     const [text, count] = useTypewriter({
@@ -23,9 +18,9 @@ function Hero({}: Props) {
         delaySpeed: 2000,
     })
 
-    const myLoader = (loaderProps : ImageProp) => {
-      return `https://assets.leetcode.com/users/ductiepdt/${loaderProps.src}`
-    }
+  const myLoader = (loaderProps : ImageProp) => {
+    return `https://assets.leetcode.com/users/ductiepdt/${loaderProps.src}`
+  }
   return (
     <div className='h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden'>
       <BackgroundCircles />
