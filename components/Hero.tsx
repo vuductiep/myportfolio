@@ -18,16 +18,21 @@ function Hero({}: Props) {
         delaySpeed: 2000,
     })
 
-  const myLoader = (loaderProps : ImageProp) => {
-    return `https://assets.leetcode.com/users/ductiepdt/${loaderProps.src}`
-  }
+  // const myLoader = (loaderProps : ImageProp) => {
+  //   return `https://assets.leetcode.com/users/ductiepdt/${loaderProps.src}`
+  // }
   return (
     <div className='h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden'>
       <BackgroundCircles />
-      <Image
+      {/* <Image
         src={'avatar_1587364877.png'}
         alt={''} width={32} height={32}
         loader={myLoader}
+        className="relative rounded-full h-32 w-32 mx-auto object-cover"
+      /> */}
+      <img
+        src={'https://assets.leetcode.com/users/ductiepdt/avatar_1587364877.png'}
+        alt={''}
         className="relative rounded-full h-32 w-32 mx-auto object-cover"
       />
       <div className={'z-20'}>
