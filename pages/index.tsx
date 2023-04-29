@@ -57,7 +57,7 @@ export default function Home() {
         <footer className='sticky bottom-5 w-full cursor-pointer'>
           <div className='flex items-center justify-center'>
             <ArrowUpIcon className='h-10 w-10 rounded-full filter 
-              grayscale hover:grayscale-0 cursor-pointer opacity-0 hover:opacity-100'/>
+              grayscale hover:grayscale-0 cursor-pointer opacity-5 hover:opacity-100'/>
           </div>
         </footer>
       </Link>
