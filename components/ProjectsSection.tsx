@@ -3,7 +3,7 @@ import React from 'react'
 
 type Props = {}
 
-function Projects({}: Props) {
+function ProjectsSection({}: Props) {
   const projects = [1, 2, 3, 4, 5]
   return (
     <div className='h-screen relative flex overflow-hidden flex-col text-left md:flex-row max-w-full justify-evenly mx-auto items-center z-0'>
@@ -38,4 +38,4 @@ function Projects({}: Props) {
   )
 }
 
-export default Projects
+export default ProjectsSection

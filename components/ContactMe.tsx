@@ -1,9 +1,12 @@
 import React from 'react'
 import { EnvelopeIcon, MapPinIcon, PhoneIcon } from '@heroicons/react/24/solid'
 import { useForm } from 'react-hook-form'
+import {PageInfo} from "@/typings";
 
 
-type Props = {}
+type Props = {
+  pageInfo: PageInfo
+}
 type Inputs = {
   name: string,
   email: string,
@@ -11,11 +14,11 @@ type Inputs = {
   message: string
 }
 
-function ContactMe({}: Props) {
+function ContactMe({pageInfo}: Props) {
   const { handleSubmit, register, formState: { errors } } = useForm<Inputs>();
   const onSubmit = (values: Inputs) => {
     console.log(values);
-    window.location.href = `mailto:vuductiep@gaion.kr?subject=${values.subject}&body=Hi, my name is ${values.name}. ${values.message} (${values.email})`
+    window.location.href = `mailto:${pageInfo.email}}?subject=${values.subject}&body=Hi, my name is ${values.name}. ${values.message} (${values.email})`
   }
   return (
     <div className='h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center'>
@@ -28,15 +31,15 @@ function ContactMe({}: Props) {
         <div>
           <div className='flex items-center space-x-5 justify-center '>
             <PhoneIcon className='text-[#f7ab0a] h-7 w-7 animate-pulse'/>
-            <p className='text-2xl'>+82.2.2051.9595</p>
+            <p className='text-2xl'>{pageInfo?.phoneNumber}</p>
           </div>
           <div className='flex items-center space-x-5 justify-center '>
             <EnvelopeIcon className='text-[#f7ab0a] h-7 w-7 animate-pulse'/>
-            <p className='text-2xl'>vuductiep@gaion.kr</p>
+            <p className='text-2xl'>{pageInfo?.email}</p>
           </div>
           <div className='flex items-center space-x-5 justify-center '>
             <MapPinIcon className='text-[#f7ab0a] h-7 w-7 animate-pulse'/>
-            <p className='text-2xl'>대전 유성구 엑스포로 1, 엑스포타워 19층</p>
+            <p className='text-2xl'>{pageInfo?.address}</p>
           </div>
         </div>
         <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col space-y-2 w-fit mx-auto'>

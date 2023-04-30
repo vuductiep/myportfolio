@@ -62,7 +62,8 @@ export interface Experience extends SanityBody {
 
 export interface Education extends SanityBody {
   _type: "education",
-  school: string,
+  university: string,
+  universityImage: Image,
   dateStarted: date,
   dateEnded: date,
   major: string,

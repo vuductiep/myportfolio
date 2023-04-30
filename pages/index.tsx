@@ -1,56 +1,74 @@
-import About from '@/components/About'
+import AboutSection from '@/components/AboutSection'
 import WorkExperience from '@/components/WorkExperience'
 import Header from '@/components/Header'
-import Hero from '@/components/Hero'
-import Skills from '@/components/Skills'
-import { Inter } from 'next/font/google'
+import HeroSection from '@/components/HeroSection'
+import SkillsSection from '@/components/SkillsSection'
+import {Inter} from 'next/font/google'
 import Head from 'next/head'
-import Projects from '@/components/Projects'
+import ProjectsSection from '@/components/ProjectsSection'
 import ContactMe from '@/components/ContactMe'
 import Link from 'next/link'
-import { ArrowUpIcon } from '@heroicons/react/24/solid'
-import Education from '@/components/Education'
+import {ArrowUpIcon} from '@heroicons/react/24/solid'
+import EducationSection from '@/components/EducationSection'
+import {Education, Experience, PageInfo, Project, Skill, Social} from "@/typings";
+import {GetStaticProps} from "next";
+import {fetchProjects} from "@/utils/fetchProjects";
+import {fetchPageInfo} from "@/utils/fetchPageInfo";
+import {fetchExperiences} from "@/utils/fetchExperiences";
+import {fetchEducations} from "@/utils/fetchEducation";
+import {fetchSkills} from "@/utils/fetchSkills";
+import {fetchSocials} from "@/utils/fetchSocials";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({subsets: ['latin']})
 
-export default function Home() {
+type Props = {
+  pageInfo: PageInfo,
+  education: Education[]
+  experiences: Experience[],
+  projects: Project[],
+  skills: Skill[],
+  socials: Social[],
+}
+
+export default function Home({pageInfo, education, experiences, projects, skills, socials}: Props) {
   return (
-    <div className="bg-[rgb(36,36,36)] h-screen text-white snap-y snap-mandatory 
+    <div
+      className="bg-[rgb(36,36,36)] h-screen text-white snap-y snap-mandatory
       overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20
       scrollbar-thumb-[#f7ab0a]/80">
       <Head>
         <title>Tiep&apos;s Portfolio</title>
       </Head>
-      
+
       {/* Header */}
-      <Header/>
-      {/* Hero */}
+      <Header socials={socials}/>
+      {/* HeroSection */}
       <section id='hero' className='snap-center'>
-        <Hero/>
+        <HeroSection pageInfo={pageInfo}/>
       </section>
       {/* About */}
       <section id='about' className='snap-center'>
-        <About />
+        <AboutSection pageInfo={pageInfo}/>
       </section>
       {/* Education */}
       <section id='education' className='snap-center'>
-        <Education />
+        <EducationSection/>
       </section>
       {/* Experience */}
       <section id='experience' className='snap-center'>
-        <WorkExperience />
+        <WorkExperience experiences={experiences}/>
       </section>
       {/* Skill */}
       <section id='skills' className='snap-center'>
-        <Skills />
+        <SkillsSection/>
       </section>
       {/* Projects */}
       <section id='projects' className='snap-center'>
-        <Projects />
+        <ProjectsSection/>
       </section>
       {/* Contact me */}
       <section id='contact' className='snap-center'>
-        <ContactMe />
+        <ContactMe pageInfo={pageInfo}/>
       </section>
 
       <Link href={'#hero'}>
@@ -63,4 +81,26 @@ export default function Home() {
       </Link>
     </div>
   )
+}
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  console.log("fetch data")
+  const pageInfo = await fetchPageInfo()
+  const experiences = await fetchExperiences()
+  const education = await fetchEducations()
+  const skills = await fetchSkills()
+  const projects = await fetchProjects()
+  const socials = await fetchSocials()
+
+  return {
+    props: {
+      pageInfo,
+      education,
+      experiences,
+      projects,
+      skills,
+      socials
+    },
+    revalidate: 10
+  }
 }

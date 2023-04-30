@@ -2,30 +2,45 @@ import React from 'react'
 import { ImageProp } from './ImageProperty'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import {Experience} from "@/typings";
+import {urlFor} from "@/sanity";
 
-type Props = {}
+type Props = {
+  experience: Experience
+}
 
-function ExperienceCard({}: Props) {
+function ExperienceCard({experience}: Props) {
   return (
-    <article className='flex flex-col rounded-1 items-center space-y-7 flex-shrink-0 w-[500px] md:w-[600px] xl:w-[900px] 
-      snap-center bg-[#292929] p-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden'>
+    <article className='flex flex-col rounded-1 items-center space-y-7 flex-shrink-0
+      w-[500px] md:w-[600px] xl:w-[900px] snap-center p-10 hover:opacity-100 bg-[#292929]
+      opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden'>
       <motion.img
         initial={{y: -100, opacity: 0}}
         transition={{duration: 1.2}}
         whileInView={{opacity: 1, y: 0}}
         viewport={{once: true}}
-        src={'https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_1/v1397198907/71d8f464fb021100101a0d9af95512b3.gif'}
+        src={urlFor(experience?.companyImage).url()}
         alt={''}
-        className="rounded-full h-32 w-32 xl:w-[200px] xl:h-[200px] object-cover object-center"
+        // className="rounded-full h-32 w-32 xl:w-[200px] xl:h-[200px] object-cover object-center"
+        className="object-cover object-center brightness-200"
       />
       <div className='px-0 md:px-10'>
-        <h4 className='text-4xl font-light'>Embbeded Software Engineer</h4>
-        <p className='font-bold text-2xl mt-1'>Dasan Networks</p>
+        <h4 className='text-4xl font-light'>{experience.jobTitle}</h4>
+        <p className='font-bold text-2xl mt-1'>{experience.company}</p>
         <div className='flex space-x-2 my-2'>
-          <img src="https://img.icons8.com/color/48/null/c-programming.png"/>
-          <img src="https://img.icons8.com/color/48/null/network.png"/>
+          {experience.technologies.map((tech) => (
+            <img
+              key={tech._id}
+              src={urlFor(tech?.image).url()}
+              className={'h-10 w-10 bg-white'}
+            />
+          ))}
         </div>
-        <p className='uppercase py-5 text-gray-300'>Started work Apr 2014 - Ended Feb 2015</p>
+        <p className='uppercase py-5 text-gray-300'>
+          {new Date(experience.dateStarted).toDateString()} -{" "}
+          {experience.isCurrentlyWorkingHere ? "Present" :
+            new Date(experience.dateEnded).toDateString()}
+        </p>
         <ul className='list-disc space-y-4 ml-5 text-lg'>
           <li>Summary points</li>
         </ul>

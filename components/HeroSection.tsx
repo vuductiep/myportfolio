@@ -3,13 +3,17 @@ import { Cursor, useTypewriter } from 'react-simple-typewriter'
 import BackgroundCircles from './BackgroundCircles'
 import Link from "next/link";
 import { motion } from 'framer-motion';
+import {PageInfo} from "@/typings";
+import {urlFor} from "@/sanity";
 
-type Props = {}
+type Props = {
+  pageInfo: PageInfo
+}
 
-function Hero({}: Props) {
+function HeroSection({pageInfo}: Props) {
     const [text, count] = useTypewriter({
         words: [
-            "Hi, My name's Tiep",
+            `Hi, My name's ${pageInfo.name.trim().split(' ').slice(-1)}`,
             "I-code-for-food.tsx",
             "<AndFunAsWell />",
         ],
@@ -30,7 +34,7 @@ function Hero({}: Props) {
         }}
         whileInView={{opacity: 1, x: 0}}
         viewport={{once: true}}
-        src="https://assets.leetcode.com/users/ductiepdt/avatar_1587364877.png"
+        src={urlFor(pageInfo?.heroImage).url()}
         className='relative rounded-full h-32 w-32 mx-auto object-cover'
       >
       </motion.img>
@@ -65,4 +69,4 @@ function Hero({}: Props) {
   )
 }
 
-export default Hero
+export default HeroSection

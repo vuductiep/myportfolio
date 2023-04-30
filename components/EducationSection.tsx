@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 type Props = {}
 
-function Education({}: Props) {
+function EducationSection({}: Props) {
   return (
     <motion.div 
       initial={{opacity: 0}}
@@ -17,4 +17,4 @@ function Education({}: Props) {
   )
 }
 
-export default Education
+export default EducationSection

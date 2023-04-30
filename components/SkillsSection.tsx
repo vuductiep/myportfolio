@@ -4,7 +4,7 @@ import SkillCard from './SkillCard'
 
 type Props = {}
 
-function Skills({}: Props) {
+function SkillsSection({}: Props) {
   return (
     <motion.div 
       initial={{opacity: 0}}
@@ -26,4 +26,4 @@ function Skills({}: Props) {
   )
 }
 
-export default Skills
+export default SkillsSection
