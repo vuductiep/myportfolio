@@ -1,10 +1,13 @@
 import { motion } from 'framer-motion'
 import React from 'react'
 import SkillCard from './SkillCard'
+import {Skill} from "@/typings";
 
-type Props = {}
+type Props = {
+  skills: Skill[]
+}
 
-function SkillsSection({}: Props) {
+function SkillsSection({skills}: Props) {
   return (
     <motion.div 
       initial={{opacity: 0}}
@@ -16,11 +19,12 @@ function SkillsSection({}: Props) {
       </h3>
       <h3 className='absolute top-36 uppercase tracking-[3px] text-gray-500 text-sm'>Hover over a skill for proficiency</h3>
       <div className='grid grid-cols-4 gap-5'>
-        <SkillCard />
-        <SkillCard />
-        <SkillCard />
-        <SkillCard />
-        <SkillCard />
+        {skills?.slice(0, skills.length/2).map( (skill) => (
+          <SkillCard key={skill._id} skill={skill}/>
+        ))}
+        {skills?.slice(skills.length/2, skills.length).map( (skill) => (
+          <SkillCard key={skill._id} skill={skill} directionLeft={true}/>
+        ))}
       </div>
     </motion.div>
   )

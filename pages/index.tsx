@@ -12,11 +12,12 @@ import {ArrowUpIcon} from '@heroicons/react/24/solid'
 import EducationSection from '@/components/EducationSection'
 import {Education, Experience, PageInfo, Project, Skill, Social} from "@/typings";
 import {GetStaticProps} from "next";
-import {fetchProjects} from "@/utils/fetchProjects";
+import {loadStaticProps} from "@/lib/loadStaticProps";
 import {fetchPageInfo} from "@/utils/fetchPageInfo";
 import {fetchExperiences} from "@/utils/fetchExperiences";
 import {fetchEducations} from "@/utils/fetchEducation";
 import {fetchSkills} from "@/utils/fetchSkills";
+import {fetchProjects} from "@/utils/fetchProjects";
 import {fetchSocials} from "@/utils/fetchSocials";
 
 const inter = Inter({subsets: ['latin']})
@@ -52,7 +53,7 @@ export default function Home({pageInfo, education, experiences, projects, skills
       </section>
       {/* Education */}
       <section id='education' className='snap-center'>
-        <EducationSection/>
+        <EducationSection education={education}/>
       </section>
       {/* Experience */}
       <section id='experience' className='snap-center'>
@@ -60,11 +61,11 @@ export default function Home({pageInfo, education, experiences, projects, skills
       </section>
       {/* Skill */}
       <section id='skills' className='snap-center'>
-        <SkillsSection/>
+        <SkillsSection skills={skills}/>
       </section>
       {/* Projects */}
       <section id='projects' className='snap-center'>
-        <ProjectsSection/>
+        <ProjectsSection projects={projects}/>
       </section>
       {/* Contact me */}
       <section id='contact' className='snap-center'>
@@ -84,23 +85,6 @@ export default function Home({pageInfo, education, experiences, projects, skills
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  console.log("fetch data")
-  const pageInfo = await fetchPageInfo()
-  const experiences = await fetchExperiences()
-  const education = await fetchEducations()
-  const skills = await fetchSkills()
-  const projects = await fetchProjects()
-  const socials = await fetchSocials()
-
-  return {
-    props: {
-      pageInfo,
-      education,
-      experiences,
-      projects,
-      skills,
-      socials
-    },
-    revalidate: 10
-  }
+  const props = loadStaticProps()
+  return props
 }

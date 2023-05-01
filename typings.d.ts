@@ -68,6 +68,7 @@ export interface Education extends SanityBody {
   dateEnded: date,
   major: string,
   activity: string,
+  isCurrentlyWorkingHere: boolean,
 }
 
 export interface Social extends SanityBody {

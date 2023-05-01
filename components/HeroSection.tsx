@@ -13,7 +13,7 @@ type Props = {
 function HeroSection({pageInfo}: Props) {
     const [text, count] = useTypewriter({
         words: [
-            `Hi, My name's ${pageInfo.name.trim().split(' ').slice(-1)}`,
+            `Hi, My name's ${pageInfo?.name.trim().split(' ').slice(-1)}`,
             "I-code-for-food.tsx",
             "<AndFunAsWell />",
         ],
