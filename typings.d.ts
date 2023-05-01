@@ -37,6 +37,7 @@ export interface Skill extends SanityBody {
   image: Image,
   title: string,
   progress: number,
+  url: string
 }
 
 export interface Project extends SanityBody {
@@ -57,7 +58,8 @@ export interface Experience extends SanityBody {
   isCurrentlyWorkingHere: boolean,
   jobTitle: string,
   points: string[],
-  technologies: Technology[]
+  technologies: Technology[],
+  url: string
 }
 
 export interface Education extends SanityBody {

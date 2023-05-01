@@ -2,6 +2,7 @@ import {motion} from 'framer-motion'
 import React from 'react'
 import {Skill} from "@/typings";
 import {urlFor} from "@/sanity";
+import Link from "next/link";
 
 type Props = {
   directionLeft?: boolean,
@@ -25,7 +26,13 @@ function SkillCard({directionLeft, skill}: Props) {
       <div className='rounded-lg absolute opacity-0 group-hover:opacity-80 transition duration-300
         ease-in-out group-hover:bg-white h-24 w-24 md:w-28 md:h-28 xl:w-32 xl:h-32 z-0'>
         <div className='flex items-center justify-center h-full'>
-          <p className='text-3xl font-bold text-black opacity-100'>{skill?.progress}</p>
+          <Link
+            rel="noopener noreferrer"
+            target="_blank"
+            href={skill?.url ? skill.url : ""}
+            className='text-3xl font-bold text-black opacity-100'>
+            {skill?.progress}
+          </Link>
         </div>
       </div>
     </div>
