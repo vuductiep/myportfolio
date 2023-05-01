@@ -9,7 +9,7 @@ type Props = {
 
 function ExperienceCard({education}: Props) {
   return (
-    <article className='flex flex-col rounded-1 items-center space-y-7 flex-shrink-0
+    <article className='flex flex-col rounded-md items-center space-y-7 flex-shrink-0
       w-[500px] md:w-[600px] xl:w-[900px] snap-center p-10 hover:opacity-100 bg-[#292929]
       opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden'>
       <motion.img
@@ -40,7 +40,9 @@ function ExperienceCard({education}: Props) {
             new Date(education?.dateEnded).toDateString()}
         </p>
         <ul className='list-disc space-y-4 ml-5 text-lg'>
-          <li>Summary points</li>
+          {education?.points.map( (point, index) => (
+            <li key={index}>{point}</li>
+            ))}
         </ul>
       </div>
     </article>

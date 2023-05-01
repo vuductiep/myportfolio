@@ -31,7 +31,7 @@ function AboutSection({pageInfo}: Props) {
       </motion.img>
       <div className='space-y-10 px-0 md:px-10'>
         <h4 className='text-4xl font-semibold'>
-          Let&apos;s get to know <span className='underline decoration-[#f7ab0a]'>me</span>&nbsp;( ^ ^ )
+          Let&apos;s get to know <span className='underline decoration-[#f7ab0a]'>me</span>&nbsp;
         </h4>
         <p className='text-base'>
           {pageInfo?.backgroundInformation}

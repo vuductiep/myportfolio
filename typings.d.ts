@@ -67,7 +67,8 @@ export interface Education extends SanityBody {
   dateStarted: date,
   dateEnded: date,
   major: string,
-  activity: string,
+  degree: string,
+  points: string[],
   isCurrentlyWorkingHere: boolean,
 }
 

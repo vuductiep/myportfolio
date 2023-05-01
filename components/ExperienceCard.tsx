@@ -13,7 +13,7 @@ function ExperienceCard({experience}: Props) {
   return (
     <article className='flex flex-col rounded-1 items-center space-y-7 flex-shrink-0
       w-[500px] md:w-[600px] xl:w-[900px] snap-center p-10 hover:opacity-100 bg-[#292929]
-      opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden'>
+      opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden rounded-md'>
       <div className='px-0 md:px-10'>
         <div >
           <div>
@@ -40,7 +40,7 @@ function ExperienceCard({experience}: Props) {
             <img
               key={tech?._id}
               src={urlFor(tech?.image).url()}
-              className={'h-10 w-10'}
+              className={'h-10 w-10 bg-white rounded'}
             />
           ))}
         </div>
@@ -51,7 +51,8 @@ function ExperienceCard({experience}: Props) {
         </p>
         {/*<ul className='list-disc space-y-4 ml-5 text-lg max-h-80 overflow-y-scroll*/}
         {/*  pr-5 scrollbar-thin scrollbar-track-black scrollbar-thumb-[#f7ab0a]/80'>*/}
-        <ul className='list-disc space-y-4 ml-5 text-lg max-h-80 overflow-y-scroll scrollbar-thin scrollbar-track-black scrollbar-thumb-[#f7ab0a]/80'>
+        {/*<ul className='list-disc space-y-4 ml-5 text-lg max-h-80 overflow-y-scroll scrollbar-thin scrollbar-track-black scrollbar-thumb-[#f7ab0a]/80'>*/}
+        <ul className='list-disc space-y-4 ml-5 text-lg'>
           {experience?.points.map((point, index) => (
             <li key={index}>{point}</li>
           ))}
