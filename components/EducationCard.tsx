@@ -24,6 +24,7 @@ function ExperienceCard({education}: Props) {
       />
       <div className='px-0 md:px-10'>
         <h4 className='text-4xl font-light'>{education?.major}</h4>
+        <p className='font-extrabold text-2xl mt-1'>{education?.degree}</p>
         <p className='font-bold text-2xl mt-1'>{education?.university}</p>
         <div className='flex space-x-2 my-2'>
           {/*{experience.technologies.map((tech) => (*/}
