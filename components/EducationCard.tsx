@@ -1,7 +1,9 @@
 import React from 'react'
 import {motion} from 'framer-motion'
-import {Education, Experience} from "@/typings";
+import {Education} from "@/typings";
 import {urlFor} from "@/sanity";
+import { format } from 'date-fns'
+import { CommonDateFormat } from '@/utils/CommonConstants';
 
 type Props = {
   education: Education
@@ -24,7 +26,7 @@ function ExperienceCard({education}: Props) {
       />
       <div className='px-0 md:px-10'>
         <h4 className='text-4xl font-light'>{education?.major}</h4>
-        <p className='font-extrabold text-2xl mt-1'>{education?.degree}</p>
+        <p className='font-bold text-2xl mt-1'>{education?.degree}</p>
         <p className='font-bold text-2xl mt-1'>{education?.university}</p>
         <div className='flex space-x-2 my-2'>
           {/*{experience.technologies.map((tech) => (*/}
@@ -36,9 +38,9 @@ function ExperienceCard({education}: Props) {
           {/*))}*/}
         </div>
         <p className='uppercase py-5 text-gray-300'>
-          {new Date(education?.dateStarted).toDateString()} -{" "}
+          {format(new Date(education?.dateStarted), CommonDateFormat)} -{" "}
           {education?.isCurrentlyWorkingHere ? "Present" :
-            new Date(education?.dateEnded).toDateString()}
+            format(new Date(education?.dateEnded), CommonDateFormat)}
         </p>
         <ul className='list-disc space-y-4 ml-5 text-lg'>
           {education?.points.map( (point, index) => (

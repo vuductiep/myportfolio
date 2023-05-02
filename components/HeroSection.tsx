@@ -12,11 +12,7 @@ type Props = {
 
 function HeroSection({pageInfo}: Props) {
     const [text, count] = useTypewriter({
-        words: [
-            `Hi, My name's ${pageInfo?.name.trim().split(' ').slice(-1)}`,
-            "I-code-for-food.tsx",
-            "<AndFunAsWell />",
-        ],
+      words: pageInfo?.motto || [],
         loop: true,
         delaySpeed: 2000,
     })
@@ -39,7 +35,7 @@ function HeroSection({pageInfo}: Props) {
       >
       </motion.img>
       <div className={'z-20'}>
-        <h2 className='text-sm uppercase text-gray-500 pb-5 tracking-[15px]'>Software Engineer</h2>
+        <h2 className='text-sm font-bold uppercase text-white pb-5 tracking-[15px]'>{pageInfo?.role}</h2>
         <h1 className='text-5xl lg:text-6xl font-semibold scroll-px-10'>
           <span className='mr-3'>{text}</span>
           <Cursor cursorColor='#F7AB0A'/>

@@ -1,9 +1,10 @@
 import React from 'react'
-import {ImageProp} from './ImageProperty'
 import Image from 'next/image'
-import {motion} from 'framer-motion'
 import {Experience} from "@/typings";
 import {urlFor} from "@/sanity";
+import Link from 'next/link';
+import { format } from 'date-fns';
+import { CommonDateFormat } from '@/utils/CommonConstants';
 
 type Props = {
   experience: Experience
@@ -18,7 +19,9 @@ function ExperienceCard({experience}: Props) {
         <div >
           <div>
             <h4 className='text-4xl font-light'>{experience?.jobTitle}</h4>
-            <p className='font-bold text-2xl mt-1'>{experience?.company}</p>
+            <Link href={experience?.url}>
+                 <p className='font-bold text-2xl mt-1'>{experience?.company}</p>
+            </Link>
           </div>
 
           {/*<div className={'flex flex-row'}>*/}
@@ -40,20 +43,21 @@ function ExperienceCard({experience}: Props) {
             <img
               key={tech?._id}
               src={urlFor(tech?.image).url()}
-              className={'h-10 w-10 bg-white rounded'}
-            />
+              className={'h-10 w-10 bg-white rounded'} 
+              alt={''} 
+              />
           ))}
         </div>
         <p className='uppercase py-5 text-gray-300'>
-          {new Date(experience?.dateStarted).toDateString()} -{" "}
+        {format(new Date(experience?.dateStarted), CommonDateFormat)} -{" "}
           {experience?.isCurrentlyWorkingHere ? "Present" :
-            new Date(experience?.dateEnded).toDateString()}
+            format(new Date(experience?.dateEnded), CommonDateFormat)}
         </p>
         {/*<ul className='list-disc space-y-4 ml-5 text-lg max-h-80 overflow-y-scroll*/}
         {/*  pr-5 scrollbar-thin scrollbar-track-black scrollbar-thumb-[#f7ab0a]/80'>*/}
         {/*<ul className='list-disc space-y-4 ml-5 text-lg max-h-80 overflow-y-scroll scrollbar-thin scrollbar-track-black scrollbar-thumb-[#f7ab0a]/80'>*/}
         <ul className='list-disc space-y-4 ml-5 text-lg'>
-          {experience?.points.map((point, index) => (
+          {experience?.points?.map((point, index) => (
             <li key={index}>{point}</li>
           ))}
         </ul>
