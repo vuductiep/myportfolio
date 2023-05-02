@@ -2,6 +2,7 @@ import { CommonDateFormat } from '@/lib/commonConstants';
 import { urlFor } from "@/sanity";
 import { Experience } from "@/typings";
 import { format } from 'date-fns';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 type Props = {
@@ -10,11 +11,23 @@ type Props = {
 
 function ExperienceCard({experience}: Props) {
   return (
-    <article className='flex flex-col rounded-1 items-center space-y-7 flex-shrink-0
-      w-[500px] md:w-[600px] xl:w-[900px] snap-center p-10 hover:opacity-100 bg-[#292929]
+    <article className='flex flex-col rounded-1 items-center space-y-7 flex-shrink-1
+      snap-center p-10 hover:opacity-100 bg-[#292929]
       opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden rounded-md'>
       <div className='px-0 md:px-10'>
         <div >
+          <div className={'flex flex-row'}>
+            <motion.img
+              initial={{y: -100, opacity: 0}}
+              transition={{duration: 1.2}}
+              whileInView={{opacity: 1, y: 0}}
+              viewport={{once: true}}
+              src={urlFor(experience?.companyImage).url()}
+              alt={''}
+              // className="rounded-full h-32 w-32 xl:w-[200px] xl:h-[200px] object-cover object-center"
+              className="h-32 w-32 md:h-[100px] md:w-auto xl:h-[100px] xl:w-auto object-cover object-center brightness-200"
+              />
+          </div>
           <div>
             <h4 className='text-4xl font-light'>{experience?.jobTitle}</h4>
             <Link href={experience?.url}>
@@ -22,18 +35,6 @@ function ExperienceCard({experience}: Props) {
             </Link>
           </div>
 
-          {/*<div className={'flex flex-row'}>*/}
-          {/*  <motion.img*/}
-          {/*    initial={{y: -100, opacity: 0}}*/}
-          {/*    transition={{duration: 1.2}}*/}
-          {/*    whileInView={{opacity: 1, y: 0}}*/}
-          {/*    viewport={{once: true}}*/}
-          {/*    src={urlFor(experience?.companyImage).width(200).url()}*/}
-          {/*    alt={''}*/}
-          {/*    // className="rounded-full h-32 w-32 xl:w-[200px] xl:h-[200px] object-cover object-center"*/}
-          {/*    className="ml-5 object-cover object-center brightness-200"*/}
-          {/*  />*/}
-          {/*</div>*/}
         </div>
 
         <div className='flex space-x-2 my-2'>

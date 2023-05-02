@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import React from 'react'
 import ExperienceCard from './ExperienceCard'
 import {Experience} from "@/typings";
+import { Carousel } from 'flowbite-react';
 
 type Props = {
   experiences: Experience[]
@@ -17,11 +18,13 @@ function WorkExperience({experiences}: Props) {
       <h3 className='absolute top-24 uppercase tracking-[20px] text-gray text-2xl'>
         Experience
       </h3>
-      <div className='w-full flex space-x-5 overflow-x-scroll p-10 snap-x snap-mandatory
-        scrollbar scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80'>
-        {experiences.map( (experience) => (
-          <ExperienceCard key={experience?._id} experience={experience}/>
-        ))}
+      <div className=''>
+        <Carousel>
+          {experiences.map( (experience) => (
+            <ExperienceCard key={experience?._id} experience={experience}/>
+          ))}
+        </Carousel>
+        
       </div>
     </motion.div>
   )
