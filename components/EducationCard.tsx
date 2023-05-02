@@ -3,7 +3,7 @@ import {motion} from 'framer-motion'
 import {Education} from "@/typings";
 import {urlFor} from "@/sanity";
 import { format } from 'date-fns'
-import { CommonDateFormat } from '@/utils/CommonConstants';
+import { CommonDateFormat } from '../utils/CommonConstants';
 
 type Props = {
   education: Education

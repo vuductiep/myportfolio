@@ -4,7 +4,7 @@ import {Experience} from "@/typings";
 import {urlFor} from "@/sanity";
 import Link from 'next/link';
 import { format } from 'date-fns';
-import { CommonDateFormat } from '@/utils/CommonConstants';
+import { CommonDateFormat } from '../utils/CommonConstants';
 
 type Props = {
   experience: Experience
