@@ -1,9 +1,8 @@
-import React from 'react'
-import {motion} from 'framer-motion'
-import {Education} from "@/typings";
-import {urlFor} from "@/sanity";
-import { format } from 'date-fns'
-import { CommonDateFormat } from '../utils/CommonConstants';
+import { CommonDateFormat } from '@/lib/commonConstants';
+import { urlFor } from "@/sanity";
+import { Education } from "@/typings";
+import { format } from 'date-fns';
+import { motion } from 'framer-motion';
 
 type Props = {
   education: Education

@@ -1,24 +1,18 @@
 import AboutSection from '@/components/AboutSection'
-import WorkExperience from '@/components/WorkExperience'
+import ContactMe from '@/components/ContactMe'
+import EducationSection from '@/components/EducationSection'
 import Header from '@/components/Header'
 import HeroSection from '@/components/HeroSection'
-import SkillsSection from '@/components/SkillsSection'
-import {Inter} from 'next/font/google'
-import Head from 'next/head'
 import ProjectsSection from '@/components/ProjectsSection'
-import ContactMe from '@/components/ContactMe'
+import SkillsSection from '@/components/SkillsSection'
+import WorkExperience from '@/components/WorkExperience'
+import { loadStaticProps } from "@/lib/loadStaticProps"
+import { Education, Experience, PageInfo, Project, Skill, Social } from "@/typings"
+import { ArrowUpIcon } from '@heroicons/react/24/solid'
+import { GetStaticProps } from "next"
+import { Inter } from 'next/font/google'
+import Head from 'next/head'
 import Link from 'next/link'
-import {ArrowUpIcon} from '@heroicons/react/24/solid'
-import EducationSection from '@/components/EducationSection'
-import {Education, Experience, PageInfo, Project, Skill, Social} from "@/typings";
-import {GetStaticProps} from "next";
-import {loadStaticProps} from "@/lib/loadStaticProps";
-import {fetchPageInfo} from "@/utils/fetchPageInfo";
-import {fetchExperiences} from "@/utils/fetchExperiences";
-import {fetchEducations} from "@/utils/fetchEducation";
-import {fetchSkills} from "@/utils/fetchSkills";
-import {fetchProjects} from "@/utils/fetchProjects";
-import {fetchSocials} from "@/utils/fetchSocials";
 
 const inter = Inter({subsets: ['latin']})
 

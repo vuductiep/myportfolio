@@ -1,10 +1,8 @@
-import React from 'react'
-import Image from 'next/image'
-import {Experience} from "@/typings";
-import {urlFor} from "@/sanity";
-import Link from 'next/link';
+import { CommonDateFormat } from '@/lib/commonConstants';
+import { urlFor } from "@/sanity";
+import { Experience } from "@/typings";
 import { format } from 'date-fns';
-import { CommonDateFormat } from '../utils/CommonConstants';
+import Link from 'next/link';
 
 type Props = {
   experience: Experience
