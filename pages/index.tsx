@@ -29,7 +29,7 @@ export default function Home({pageInfo, education, experiences, projects, skills
   return (
     <div
       className="bg-[rgb(36,36,36)] h-screen text-white snap-y snap-mandatory
-      overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20
+      overflow-y-scroll overflow-x-hidden z-0 scrollbar-thin scrollbar-track-gray-400/20
       scrollbar-thumb-[#f7ab0a]/80">
       <Head>
         <title>Tiep&apos;s Portfolio</title>
@@ -67,7 +67,7 @@ export default function Home({pageInfo, education, experiences, projects, skills
       </section>
 
       <Link href={'#hero'}>
-        <footer className='sticky bottom-5 w-full cursor-pointer'>
+        <footer className='sticky bottom-1 w-full cursor-pointer'>
           <div className='flex items-center justify-center'>
             <ArrowUpIcon className='h-10 w-10 rounded-full filter 
               grayscale hover:grayscale-0 cursor-pointer opacity-5 hover:opacity-100'/>

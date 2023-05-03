@@ -36,7 +36,7 @@ function HeroSection({pageInfo}: Props) {
       </motion.img>
       <div className={'z-20'}>
         <h2 className='text-sm font-bold uppercase text-white pb-5 tracking-[15px]'>{pageInfo?.role}</h2>
-        <h1 className='text-5xl lg:text-6xl font-semibold scroll-px-10'>
+        <h1 className='text-4xl lg:text-6xl font-semibold scroll-px-10'>
           <span className='mr-3'>{text}</span>
           <Cursor cursorColor='#F7AB0A'/>
         </h1>
@@ -48,14 +48,14 @@ function HeroSection({pageInfo}: Props) {
           <Link href={'#education'}>
             <button className='heroButton'>Education</button>
           </Link>
-          <Link href={'#experience'}>
-            <button className='heroButton'>Experience</button>
-          </Link>
           <Link href={'#skills'}>
             <button className='heroButton'>Skills</button>
           </Link>
         </div>
-        <div className={'pt-5'}>
+        <div className={''}>
+          <Link href={'#experience'}>
+            <button className='heroButton'>Experience</button>
+          </Link>
           <Link href={'#projects'}>
             <button className='heroButton'>Projects</button>
           </Link>

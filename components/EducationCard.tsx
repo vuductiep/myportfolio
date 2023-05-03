@@ -8,26 +8,26 @@ type Props = {
   education: Education
 }
 
-function ExperienceCard({education}: Props) {
+function EducationCard({education}: Props) {
   return (
-    <article className='flex flex-col rounded-md items-center space-y-7 flex-shrink-1
-      snap-center p-10 hover:opacity-100 bg-[#292929]
-      opacity-40 cursor-pointer transition-opacity duration-200'>
+    <article className='flex flex-col rounded-md items-center bg-[#292929] cursor-pointer my-10'>
       <motion.img
-        initial={{y: -100, opacity: 0}}
-        transition={{duration: 1.2}}
+        initial={{y: -50, opacity: 0}}
+        transition={{duration: 1}}
         whileInView={{opacity: 1, y: 0}}
         viewport={{once: true}}
         src={urlFor(education?.universityImage).url()}
         alt={''}
         // className="rounded-full h-32 w-32 xl:w-[200px] xl:h-[200px] object-cover object-center"
-        className="object-cover object-center brightness-200"
+        className="h-14 md:h-[100px] md:w-auto xl:h-[150px] xl:w-auto object-cover object-center bg-white rounded-lg"
+        // className="h-10 w-auto md:h-[100px] md:w-auto xl:h-[100px] xl:w-auto object-cover object-center bg-slate-50 rounded-sm p-2"
       />
-      <div className='px-0 md:px-10'>
+      
+      <div className=''>
         <h4 className='text-4xl font-light'>{education?.major}</h4>
         <p className='font-bold text-2xl mt-1'>{education?.degree}</p>
         <p className='font-bold text-2xl mt-1'>{education?.university}</p>
-        <div className='flex space-x-2 my-2'>
+        {/* <div className='flex space-x-2 my-2'> */}
           {/*{experience.technologies.map((tech) => (*/}
           {/*  <img*/}
           {/*    key={tech._id}*/}
@@ -35,7 +35,7 @@ function ExperienceCard({education}: Props) {
           {/*    className={'h-10 w-10 bg-white'}*/}
           {/*  />*/}
           {/*))}*/}
-        </div>
+        {/* </div> */}
         <p className='uppercase py-5 text-gray-300'>
           {format(new Date(education?.dateStarted), CommonDateFormat)} -{" "}
           {education?.isCurrentlyWorkingHere ? "Present" :
@@ -51,4 +51,4 @@ function ExperienceCard({education}: Props) {
   )
 }
 
-export default ExperienceCard
+export default EducationCard
