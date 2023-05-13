@@ -10,8 +10,9 @@ type Props = {
 
 function ProjectCard({project}: Props) {
   return (
-    <div className='w-screen h-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44'>
-      <motion.img 
+    <div className='w-screen h-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center
+    p-20 md:p-50 xl:p-100'>
+      <motion.img
         initial={{
           y: -300,
           opacity: 0,
@@ -19,10 +20,9 @@ function ProjectCard({project}: Props) {
         transition={{duration: 1}}
         whileInView={{opacity: 1, y: 0}}
         viewport={{once: true}}
-        src={urlFor(project?.image).height(300).url()}
+        src={urlFor(project?.image).url()}
         alt=''
-        className="rounded-lg bg-white
-          filter group-hover:grayscale transition duration-300 ease-in-out p-1"
+        className="rounded-lg bg-white h-32 md:h-40 xl:h-60 filter group-hover:grayscale transition duration-300 ease-in-out p-1"
       />
       <div className='space-y-10 px-0 md:px-10 max-w-6xl'>
         <h4 className='text-4xl font-semibold text-center'>

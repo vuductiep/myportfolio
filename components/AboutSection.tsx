@@ -9,7 +9,7 @@ type Props = {
 
 function AboutSection({pageInfo}: Props) {
   return (
-    <motion.div 
+    <motion.div
       initial={{opacity: 0}}
       whileInView={{opacity: 1}}
       transition={{duration: 1.5}}
@@ -26,7 +26,7 @@ function AboutSection({pageInfo}: Props) {
         whileInView={{opacity: 1, x: 0}}
         viewport={{once: true}}
         src={urlFor(pageInfo?.profilePic).url()}
-        className='-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]'
+        className='-mb-20 md:mb-0 flex-shrink-0 h-32 object-cover md:h-40 xl:h-60'
       >
       </motion.img>
       <div className='space-y-10 px-0 md:px-10'>

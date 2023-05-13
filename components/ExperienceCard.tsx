@@ -10,9 +10,11 @@ type Props = {
 
 function ExperienceCard({experience}: Props) {
   return (
-    <article className='flex flex-col rounded-1 items-center space-y-7 flex-shrink-0
-      w-[500px] md:w-[600px] xl:w-[900px] snap-center p-10 hover:opacity-100 bg-[#292929]
-      opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden rounded-md'>
+    <div className='w-screen h-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center
+    p-20 md:p-50 xl:p-100'>
+    {/*<article className='flex flex-col rounded-1 items-center space-y-7 flex-shrink-0*/}
+    {/*  w-[500px] md:w-[600px] xl:w-[900px] snap-center p-10 hover:opacity-100 bg-[#292929]*/}
+    {/*  opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden rounded-md'>*/}
       <div className='px-0 md:px-10'>
         <div >
           <div>
@@ -41,8 +43,8 @@ function ExperienceCard({experience}: Props) {
             <img
               key={tech?._id}
               src={urlFor(tech?.image).url()}
-              className={'h-10 w-10 bg-white rounded'} 
-              alt={''} 
+              className={'h-10 w-10 bg-white rounded'}
+              alt={''}
               />
           ))}
         </div>
@@ -60,7 +62,8 @@ function ExperienceCard({experience}: Props) {
           ))}
         </ul>
       </div>
-    </article>
+    {/*</article>*/}
+    </div>
   )
 }
 
