@@ -10,7 +10,7 @@ type Props = {
 
 function EducationCard({education}: Props) {
   return (
-    <article className='flex flex-col rounded-md items-center bg-[#292929] cursor-pointer my-10'>
+    <article className='flex flex-col rounded-md items-center bg-[#292929] cursor-pointer my-2 p-1 sm:p-5'>
       <motion.img
         initial={{y: -50, opacity: 0}}
         transition={{duration: 1}}
