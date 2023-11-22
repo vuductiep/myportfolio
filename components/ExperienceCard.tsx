@@ -11,10 +11,10 @@ type Props = {
 
 function ExperienceCard({experience}: Props) {
   return (
-    <article className='flex flex-col rounded-md items-center bg-[#292929] my-10 cursor-pointer'>
-    {/*<article className='flex flex-col rounded-1 items-center space-y-7 flex-shrink-1*/}
-    {/*  snap-center p-10 hover:opacity-100 bg-[#292929]*/}
-    {/*  opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden rounded-md'>*/}
+    <article className='flex flex-col rounded-md items-center bg-[#292929] my-2 cursor-pointer'>
+      {/*<article className='flex flex-col rounded-1 items-center space-y-7 flex-shrink-1*/}
+      {/*  snap-center p-10 hover:opacity-100 bg-[#292929]*/}
+      {/*  opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden rounded-md'>*/}
       <motion.img
         initial={{y: -50, opacity: 0}}
         transition={{duration: 1}}
@@ -23,9 +23,10 @@ function ExperienceCard({experience}: Props) {
         src={urlFor(experience?.companyImage).url()}
         alt={''}
         // className="rounded-full h-32 w-32 xl:w-[200px] xl:h-[200px] object-cover object-center"
-        className="h-14 w-auto md:h-[50px] md:w-auto xl:h-[100px] xl:w-auto object-cover object-center bg-slate-50 rounded-sm p-1"
+        className={`h-14 w-auto md:h-[100px] md:w-auto xl:h-[150px] xl:w-auto object-cover object-center 
+        bg-slate-50 rounded-sm p-2`}
       />
-      <div className=''>
+      <div className='pb-10 pt-5 px-10'>
         <div>
           <h4 className='text-4xl font-light'>{experience?.jobTitle}</h4>
           <Link href={experience?.url}>

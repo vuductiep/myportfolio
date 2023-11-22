@@ -19,11 +19,11 @@ function EducationCard({education}: Props) {
         src={urlFor(education?.universityImage).url()}
         alt={''}
         // className="rounded-full h-32 w-32 xl:w-[200px] xl:h-[200px] object-cover object-center"
-        className="h-14 md:h-[100px] md:w-auto xl:h-[150px] xl:w-auto object-cover object-center bg-white rounded-lg"
-        // className="h-10 w-auto md:h-[100px] md:w-auto xl:h-[100px] xl:w-auto object-cover object-center bg-slate-50 rounded-sm p-2"
+        className={`h-14 md:h-[100px] md:w-auto xl:h-[150px] xl:w-auto 
+        object-cover object-center bg-white rounded-lg p-2`}
       />
       
-      <div className=''>
+      <div className='pb-10 pt-5 px-10'>
         <h4 className='text-4xl font-light'>{education?.major}</h4>
         <p className='font-bold text-2xl mt-1'>{education?.degree}</p>
         <p className='font-bold text-2xl mt-1'>{education?.university}</p>
